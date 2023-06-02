@@ -49,6 +49,8 @@ if __name__ == '__main__':
             )
 
             reviews.append(review)
+
+    reviews = relationship('Review', backref=backref('game'), cascade='all')        
     
     session.bulk_save_objects(reviews)
     session.commit()
